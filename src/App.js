@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React ,{ useState } from 'react';
+import Form from './components/form'
+import TotalContainer from './components/totalcontainer'
 
-function App() {
+function App(){
+  const [cantidad,setCantidad] = useState('');
+  const [plazo,setPlazo] = useState('');
+  const [total,setTotal] =useState(0)
+
+ const guardarCantidad = (e) => {
+   setCantidad(parseInt(e.target.value))
+ }
+ const guardarPlazo = (e) => {
+  setPlazo(parseInt(e.target.value))
+ }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <Form
+      cantidad={cantidad}
+      guardarCantidad={guardarCantidad}
+      plazo={plazo}
+      guardarPlazo={guardarPlazo}
+      setTotal={setTotal}
+      >
+      </Form>
+      
+      { cantidad>0 && plazo>=3 && total >0?
+       <TotalContainer 
+      total={total}
+      plazo={plazo}
+      cantidad={cantidad}
+      ></TotalContainer>: ''}
+     
+    </React.Fragment>
+  )
 }
 
-export default App;
+export default App

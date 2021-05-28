@@ -1,0 +1,12 @@
+#error {
+  @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap");
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  margin-top: 32px;
+  border: solid red 2px;
+  padding: 6px;
+  border-radius: 2px;
+  width: 93%;
+}
